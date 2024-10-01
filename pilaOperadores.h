@@ -1,18 +1,17 @@
 #ifndef PILAOPERADORES_H
 #define PILAOPERADORES_H
 
-
-//Interfaz TAD pila
+// Interfaz TAD pila
 typedef void *pilaOperadores; /*tipo opaco*/
 
-//CONTENIDO DE CADA ELEMENTO DE LA PILA
-//MODIFICAR: PARA LA PILA DE OPERADORES: char
-//MODIFICAR: PARA LA PILA DE OPERANDOS: abin
+// CONTENIDO DE CADA ELEMENTO DE LA PILA
+// MODIFICAR: PARA LA PILA DE OPERADORES: char
+// MODIFICAR: PARA LA PILA DE OPERANDOS: abin
 typedef char tipoelemPilaOperadores;
 
-//Funciones de creacion y destruccion
+// Funciones de creacion y destruccion
 /**
- * Crea la pila vacia. 
+ * Crea la pila vacia.
  * @param P Puntero a la pila. Debe estar inicializada.
  */
 void crearPilaOperadores(pilaOperadores *P);
@@ -23,7 +22,7 @@ void crearPilaOperadores(pilaOperadores *P);
  */
 void destruirPilaOperadores(pilaOperadores *P);
 
-//Funciones de informacion
+// Funciones de informacion
 /**
  * Comprueba si la pila esta vacia
  * @param P pila
@@ -33,16 +32,16 @@ unsigned esVaciaPilaOperadores(pilaOperadores P);
 /*
  * Recupera la informacion del tope de la pila
  * @param P pila
- * 
-*/
+ *
+ */
 tipoelemPilaOperadores topeOperadores(pilaOperadores P);
 
-//Funciones de insercion/eliminacion
+// Funciones de insercion/eliminacion
 /**
  * Inserta un nuevo nodo en la pila para el elemento E
  * en el tope de la pila
  * @param P puntero a la pila
- * @param E Informacion del nuevo nodo. 
+ * @param E Informacion del nuevo nodo.
  */
 void pushOperadores(pilaOperadores *P, tipoelemPilaOperadores E);
 
@@ -52,5 +51,4 @@ void pushOperadores(pilaOperadores *P, tipoelemPilaOperadores E);
  */
 void popOperadores(pilaOperadores *P);
 
-#endif	// PILAOPERADORES_H
-
+#endif // PILAOPERADORES_H

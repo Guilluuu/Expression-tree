@@ -109,7 +109,7 @@ abin arbolExpresion(char *expr_infija)
 
     abin ret;
     abin aux;
-    char c = expr_infija[0], caux;
+    char c = expr_infija[0];
     pilaOperadores pila_operadores;
     pilaOperandos pila_operandos;
     crearPilaOperadores(&pila_operadores);
@@ -141,13 +141,12 @@ abin arbolExpresion(char *expr_infija)
         }
         c = expr_infija[i];
     }
-        while (!esVaciaPilaOperadores(pila_operadores))
-        {
-            mod_pilaOperandos(&pila_operadores,&pila_operandos);
-        }
-        destruirPilaOperadores(&pila_operadores);
-        ret = topeOperandos(pila_operandos);
-        destruirPilaOperandos(&pila_operandos);
-        return ret;
-    
+    while (!esVaciaPilaOperadores(pila_operadores))
+    {
+        mod_pilaOperandos(&pila_operadores, &pila_operandos);
+    }
+    destruirPilaOperadores(&pila_operadores);
+    ret = topeOperandos(pila_operandos);
+    destruirPilaOperandos(&pila_operandos);
+    return ret;
 }

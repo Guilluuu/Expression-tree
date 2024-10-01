@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char tipoelem; //Repetimos la definicion de tipoelem
+typedef char tipoelem; // Repetimos la definicion de tipoelem
 
-struct celda {
+struct celda
+{
     tipoelem info;
     struct celda *izq, *der;
 };
 typedef struct celda *abin;
 
-
-
-void crear(abin *A) {
+void crear(abin *A)
+{
     *A = NULL;
 }
 
-unsigned esVacio(abin A) {
+unsigned esVacio(abin A)
+{
     return (A == NULL);
 }
 
-//Tengo que poner el prototipo de las funciones por ser funciones
-//recursivas o funciones que se usan antes de escribirlas.
+// Tengo que poner el prototipo de las funciones por ser funciones
+// recursivas o funciones que se usan antes de escribirlas.
 void supizq(abin *A);
 void supder(abin *A);
-void destruir(abin *A) {
+void destruir(abin *A)
+{
     abin aux;
     aux = *A;
-    if (!esVacio(aux)) {
+    if (!esVacio(aux))
+    {
         supizq(&aux);
         supder(&aux);
         free(aux);
@@ -34,25 +37,30 @@ void destruir(abin *A) {
     }
 }
 
-abin izq(abin A) {
+abin izq(abin A)
+{
     return A->izq;
 }
 
-abin der(abin A) {
+abin der(abin A)
+{
     return A->der;
 }
 
-void leer(abin A, tipoelem *E) {
+void leer(abin A, tipoelem *E)
+{
     *E = A->info;
 }
 
-void modificar(abin A, tipoelem E) {
+void modificar(abin A, tipoelem E)
+{
     A->info = E;
 }
 
-void insizq(abin *A, tipoelem E) {
+void insizq(abin *A, tipoelem E)
+{
     abin aux;
-    aux = (abin) malloc(sizeof (struct celda));
+    aux = (abin)malloc(sizeof(struct celda));
     aux->info = E;
     aux->izq = NULL;
     aux->der = NULL;
@@ -63,9 +71,10 @@ void insizq(abin *A, tipoelem E) {
         (*A)->izq = aux;
 }
 
-void insder(abin *A, tipoelem E) {
+void insder(abin *A, tipoelem E)
+{
     abin aux;
-    aux = (abin) malloc(sizeof (struct celda));
+    aux = (abin)malloc(sizeof(struct celda));
     aux->info = E;
     aux->izq = NULL;
     aux->der = NULL;
@@ -75,11 +84,13 @@ void insder(abin *A, tipoelem E) {
         (*A)->der = aux;
 }
 
-void supizq(abin *A) {
+void supizq(abin *A)
+{
     abin aux;
     aux = izq(*A);
 
-    if (!esVacio(aux)) {
+    if (!esVacio(aux))
+    {
         supizq(&aux);
         supder(&aux);
         (*A)->izq = NULL;
@@ -87,10 +98,12 @@ void supizq(abin *A) {
     }
 }
 
-void supder(abin *A) {
+void supder(abin *A)
+{
     abin aux;
     aux = der(*A);
-    if (!esVacio(aux)) {
+    if (!esVacio(aux))
+    {
         supizq(&aux);
         supder(&aux);
         (*A)->der = NULL;
@@ -98,20 +111,21 @@ void supder(abin *A) {
     }
 }
 
-//NUEVAS FUNCIONALIDADES PARA INSERTAR UN SUB�RBOL a la izquierda o a la derecha
-//NECESARIAS PARA CREAR LOS ARBOLES DE EXPRESION
+// NUEVAS FUNCIONALIDADES PARA INSERTAR UN SUB�RBOL a la izquierda o a la derecha
+// NECESARIAS PARA CREAR LOS ARBOLES DE EXPRESION
 
-void insArbolizq(abin *A, abin aux) {
+void insArbolizq(abin *A, abin aux)
+{
     if (esVacio(*A))
         *A = aux;
     else
         (*A)->izq = aux;
 }
 
-void insArbolder(abin *A, abin aux) {
+void insArbolder(abin *A, abin aux)
+{
     if (esVacio(*A))
         *A = aux;
     else
         (*A)->der = aux;
 }
-

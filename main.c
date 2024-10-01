@@ -7,17 +7,20 @@
 
 #define MAX_SIZE 500
 
-
-int main(int argc, char** argv){
+int main(int argc, char **argv)
+{
     char exInfija[MAX_SIZE]; // Se puede pasar por linea de comados
     printf("Inserta la expresión infija: ");
     scanf("%s", exInfija);
+    abin arbol = arbolExpresion(exInfija);
     printf("\nExpresion prefija: ");
-    preorden(arbolExpresion(exInfija));
+    preorden(arbol);
     printf("\nExpresion infija: ");
-    inorden(arbolExpresion(exInfija));
+    inorden(arbol);
     printf("\nExpresion postfija: ");
-    postorden(arbolExpresion(exInfija));
+    postorden(arbol);
+    destruir(&arbol);
     printf("\n");
+
     return 0;
 }

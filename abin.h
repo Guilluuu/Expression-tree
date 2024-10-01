@@ -1,22 +1,22 @@
 #ifndef ABIN_H
 #define ABIN_H
 
-//Interfaz del TAD abin preparado para los arboles de expresion
-typedef void *abin; //TIPO OPACO, no sabemos como esta construido
+// Interfaz del TAD abin preparado para los arboles de expresion
+typedef void *abin; // TIPO OPACO, no sabemos como esta construido
 
-//contenido de cada nodo del arbol: arbol de letras
-//ESTA DEFINICION LA TENEMOS QUE REPETIR EN abin.c, exactamente igual
+// contenido de cada nodo del arbol: arbol de letras
+// ESTA DEFINICION LA TENEMOS QUE REPETIR EN abin.c, exactamente igual
 typedef char tipoelem;
 
 /////////////////////////////// FUNCIONES
 
-//NUEVAS FUNCIONALIDADES PARA INSERTAR UN SUBARBOL a la izquierda 
-//o a la derecha NECESARIAS PARA CREAR LOS ARBOLES DE EXPRESION
+// NUEVAS FUNCIONALIDADES PARA INSERTAR UN SUBARBOL a la izquierda
+// o a la derecha NECESARIAS PARA CREAR LOS ARBOLES DE EXPRESION
 void insArbolizq(abin *A, abin aux);
 void insArbolder(abin *A, abin aux);
 
 /*
- * Crea el arbol vacio. 
+ * Crea el arbol vacio.
  * @param A Puntero al arbol. Debe estar inicializado.
  */
 void crear(abin *A);
@@ -56,7 +56,7 @@ void leer(abin A, tipoelem *E);
  * Inserta un nuevo nodo en el arbol para el elemento E
  * a la izquierda de A
  * @param A Arbol binario
- * @param E Informacion del nuevo nodo. 
+ * @param E Informacion del nuevo nodo.
  */
 void insizq(abin *A, tipoelem E);
 
@@ -64,7 +64,7 @@ void insizq(abin *A, tipoelem E);
  * Inserta un nuevo nodo en el arbol para el elemento E
  * a la derecha de A
  * @param A Arbol binario
- * @param E Informacion del nuevo nodo. 
+ * @param E Informacion del nuevo nodo.
  */
 void insder(abin *A, tipoelem E);
 
@@ -87,4 +87,4 @@ void supder(abin *A);
  */
 void modificar(abin A, tipoelem E);
 
-#endif	// ABIN_H
+#endif // ABIN_H
